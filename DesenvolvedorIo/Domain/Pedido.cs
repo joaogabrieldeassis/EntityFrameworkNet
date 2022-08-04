@@ -18,5 +18,6 @@ namespace EfCore.Domain
         public string Observacao{ get; set; }
 
         public List<PedidoItem>{ get; set; }
+    //Um pedido tem muitos itens De Pedido
     }
 }
