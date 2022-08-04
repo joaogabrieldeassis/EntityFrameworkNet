@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EfCore.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,10 +15,10 @@ namespace EfCore.Domain
         public DateTime IniciandoEm { get; set; }
         public DateTime FinalizandoEm{ get; set; }
         public TipoDeFrete TipoDeFrete{ get; set; }
-        public Status Status{ get; set; }
+        public StatusDoPedido Status{ get; set; }
         public string Observacao{ get; set; }
 
-        public List<PedidoItem>{ get; set; }
+        public List<PedidoItem> PedidoItems{ get; set; }
     //Um pedido tem muitos itens De Pedido
     }
 }
