@@ -13,5 +13,9 @@ namespace EfCore.Data
         {
             options.UseSqlServer("Server = localhost, 1433; Database = Blog; User ID = sa; Password = 1q2w3e4r@#$;Trusted_Connection=False; TrustServerCertificate=True;");
         }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.ApplyConfigurationsFromAssembly(typeof(BlogDataContext).Assembly);
+        }
     }
 }
