@@ -15,6 +15,6 @@ namespace EfCore.Domain
         public Produto Produto { get; set; }
         public int Quantidade { get; set; }
         public double Valor{ get; set; }
-        public double MyProperty { get; set; }
+        public double Desconto { get; set; }
     }
 }
