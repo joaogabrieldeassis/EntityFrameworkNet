@@ -17,10 +17,13 @@ namespace EfCore.Data.MappingConfiguration
             builder.HasKey(x => x.Id);
             builder.Property(x => x.IniciandoEm).HasDefaultValueSql("GETDATE()").ValueGeneratedOnAdd();
             builder.Property(x => x.FinalizandoEm).HasDefaultValueSql("GETDATE()").ValueGeneratedOnAdd();
-            builder.Property(x => x.TipoDeFrete).HasConversion<string>();
-            builder.Property(x => x.Status).HasConversion<int>();
+            builder.Property(x => x.TipoDeFrete).HasConversion<int>();
+            builder.Property(x => x.Status).HasConversion<string>();
             builder.Property(x => x.Observacao).HasColumnType("NVARCHAR(200)");
 
+            builder.HasMany(x=>x.PedidoItems)
+                .WithOne(x=>x.Pedido)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

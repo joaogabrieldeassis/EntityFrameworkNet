@@ -8,8 +8,8 @@ namespace EfCore.ValueObjects
 {
     public enum TipoDeFrete
     {
-        Cif = 1,
-        Fob = 2,
-        SemFrete =3,
+        Cif,
+        Fob,
+        SemFrete,
     }
 }

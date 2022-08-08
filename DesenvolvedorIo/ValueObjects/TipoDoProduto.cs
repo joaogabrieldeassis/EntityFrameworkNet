@@ -8,8 +8,8 @@ namespace EfCore.ValueObjects
 {
     public enum TipoDoProduto
     {
-        MercadoParaVenda= 1,
-        Embalagem = 2, 
-        Servico = 3,
+        MercadoParaVenda,
+        Embalagem, 
+        Servico,
     }
 }

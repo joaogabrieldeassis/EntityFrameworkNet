@@ -9,13 +9,8 @@ namespace EfCore.Domain
 {
     public  class Client : BaseId
     {
-        public Client(string name, Endereco endereco)
-        {
-            Name = name;
-            Endereco = endereco;
-        }
-        public Guid Id { get; set; }
+       
         public string Name { get; set; }
-        public Endereco Endereco{ get; set; }
+        public string Endereco { get; set; }
     }
 }

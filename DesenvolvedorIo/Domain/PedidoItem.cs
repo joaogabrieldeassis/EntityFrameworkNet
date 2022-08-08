@@ -8,6 +8,8 @@ namespace EfCore.Domain
 {
     public class PedidoItem: BaseId
     {
+        
+
         public int PedidoId{ get; set; }
         public Pedido Pedido { get; set; }
         public int ProdutoId { get; set; }

@@ -9,8 +9,8 @@ namespace EfCore.Domain
 {
     public class Pedido : BaseId
     {
-        public Guid Id { get; set; }
-        public int ClientID { get; set; }
+
+        public int ClienteID { get; set; }
         public Client Client { get; set; }
         public DateTime IniciandoEm { get; set; }
         public DateTime FinalizandoEm{ get; set; }

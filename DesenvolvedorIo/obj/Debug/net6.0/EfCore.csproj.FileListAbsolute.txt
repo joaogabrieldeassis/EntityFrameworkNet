@@ -56,3 +56,8 @@ C:\EntityFrameworkNet\DesenvolvedorIo\obj\Debug\net6.0\refint\EfCore.dll
 C:\EntityFrameworkNet\DesenvolvedorIo\obj\Debug\net6.0\EfCore.pdb
 C:\EntityFrameworkNet\DesenvolvedorIo\obj\Debug\net6.0\EfCore.genruntimeconfig.cache
 C:\EntityFrameworkNet\DesenvolvedorIo\obj\Debug\net6.0\ref\EfCore.dll
+C:\EntityFrameworkNet\DesenvolvedorIo\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
+C:\EntityFrameworkNet\DesenvolvedorIo\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\EntityFrameworkNet\DesenvolvedorIo\bin\Debug\net6.0\Microsoft.Extensions.Logging.Configuration.dll
+C:\EntityFrameworkNet\DesenvolvedorIo\bin\Debug\net6.0\Microsoft.Extensions.Logging.Console.dll
+C:\EntityFrameworkNet\DesenvolvedorIo\bin\Debug\net6.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll

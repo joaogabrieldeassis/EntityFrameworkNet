@@ -8,8 +8,8 @@ namespace EfCore.ValueObjects
 {
     public enum StatusDoPedido
     {
-        Analise = 1,
-        Finalizado = 2,
-        Entregue = 3,
+        Analise,
+        Finalizado,
+        Entregue,
     }
 }
