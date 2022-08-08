@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace EfCore.Domain
 {
-    public class Produto
+    public class Produto : BaseId
     {
-        public int Id { get; set; }
         public string CodigoDeBarras { get; set; }
         public string Descricao { get; set; }
         public double Valor { get; set; }

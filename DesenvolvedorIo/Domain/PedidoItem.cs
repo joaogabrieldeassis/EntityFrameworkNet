@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace EfCore.Domain
 {
-    public class PedidoItem
+    public class PedidoItem: BaseId
     {
-        public int Id { get; set; }
         public int PedidoId{ get; set; }
         public Pedido Pedido { get; set; }
         public int ProdutoId { get; set; }
