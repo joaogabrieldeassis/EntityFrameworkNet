@@ -8,7 +8,7 @@ namespace EfCore
     {
         static void Main(string[] args)
         {
-            InserirDadosNoProduto();
+            InserindoDadosEmGrandeQuantidade();
         }
         private static void InserirDadosNoProduto()
         {
@@ -44,7 +44,7 @@ namespace EfCore
 
             var cliente = new Client();
             cliente.Name = "João Gabriel de assis";
-            cliente.Endereco = "Rua João lindo";
+            cliente.Endereco = "Rua eusebio";
             context.AddRange(produto,cliente);
             var receiveSaveChabges = context.SaveChanges();
             Console.WriteLine($"Esse é o número de registros inseridos: {receiveSaveChabges}");
