@@ -1,5 +1,6 @@
 ﻿using EfCore.Domain;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace EfCore.Data
 {
     public  class BlogDataContext : DbContext
     {
+        private readonly ILoggerFactory _logger = LoggerFactory.Create(x => x.AddConsole());
         public DbSet<Produto> Produtoos{ get; set; }
         public DbSet<Client> Clientes { get; set; }
         public DbSet<Pedido> Pedidos { get; set; }

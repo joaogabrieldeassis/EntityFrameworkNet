@@ -32,5 +32,16 @@ namespace EfCore
             
 
         }
+        private static void InserindoDadosEmGrandeQuantidade()
+        {
+            var produto = new Produto();
+            produto.CodigoDeBarras = "987654321";
+            produto.Descricao = "Muito mas muito bom";
+            produto.Valor = 200;
+            produto.TipoDoProduto = TipoDoProduto.Embalagem;
+            produto.Ativo = true;
+
+            
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace EfCore.Domain
 {
     public class Produto : BaseId
     {
-        
+
         public string CodigoDeBarras { get; set; }
         public string Descricao { get; set; }
         public double Valor { get; set; }
