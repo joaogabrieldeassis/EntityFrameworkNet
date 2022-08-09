@@ -34,6 +34,7 @@ namespace EfCore
         }
         private static void InserindoDadosEmGrandeQuantidade()
         {
+            var context = new BlogDataContext();
             var produto = new Produto();
             produto.CodigoDeBarras = "987654321";
             produto.Descricao = "Muito mas muito bom";
@@ -41,7 +42,14 @@ namespace EfCore
             produto.TipoDoProduto = TipoDoProduto.Embalagem;
             produto.Ativo = true;
 
-            
+            var cliente = new Client();
+            cliente.Name = "João Gabriel de assis";
+            cliente.Endereco = "Rua João lindo";
+            context.AddRange(produto,cliente);
+            var receiveSaveChabges = context.SaveChanges();
+            Console.WriteLine($"Esse é o número de registros inseridos: {receiveSaveChabges}");
         }
+        
+
     }
 }
