@@ -1,6 +1,7 @@
 ﻿using EfCore.Data;
 using EfCore.Domain;
 using EfCore.ValueObjects;
+using Microsoft.EntityFrameworkCore;
 
 namespace EfCore
 {
@@ -8,7 +9,7 @@ namespace EfCore
     {
         static void Main(string[] args)
         {
-            InserindoDadosEmGrandeQuantidade();
+            ConsultandoDados();
         }
         private static void InserirDadosNoProduto()
         {
@@ -42,14 +43,28 @@ namespace EfCore
             produto.TipoDoProduto = TipoDoProduto.Embalagem;
             produto.Ativo = true;
 
-            var cliente = new Client();
-            cliente.Name = "João Gabriel de assis";
-            cliente.Endereco = "Rua eusebio";
+            var cliente = new Client("João Gabriel de assis", "Rua eusebio");
             context.AddRange(produto,cliente);
             var receiveSaveChabges = context.SaveChanges();
             Console.WriteLine($"Esse é o número de registros inseridos: {receiveSaveChabges}");
         }
-        
-
+        private static void ConsultandoDados()
+        {
+            var context = new BlogDataContext();
+            var listProduto = context.Produtoos.Where(x=>x.Ativo == false).AsNoTracking().ToList();
+            foreach (var item in listProduto)
+            {
+                Console.WriteLine($"Id: {item.Ativo}");
+            }
+        }
+        private static void InsercaoDeDadosViaCliente()
+        {
+            var listClient = new List<Client>();
+            var context = new BlogDataContext();
+            Console.WriteLine("Digite o seu nome");
+            var receiveClient = Console.ReadLine();
+            var receiveClientEndereço = Console.ReadLine();
+            listClient.Add(new Client(receiveClient,receiveClientEndereço));  
+        }
     }
 }
