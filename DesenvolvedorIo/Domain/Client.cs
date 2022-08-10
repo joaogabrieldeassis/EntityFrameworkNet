@@ -14,7 +14,6 @@ namespace EfCore.Domain
             Name = name;
             Endereco = endereco;
         }
-
         public string Name { get; set; }
         public string Endereco { get; set; }
     }
