@@ -9,7 +9,16 @@ namespace EfCore
     {
         static void Main(string[] args)
         {
-            ConsultandoDados();
+            AtualizandoDadosComPerfomasse();
+        }
+        private static void AtualizandoDadosComPerfomasse()
+        {
+            var context = new BlogDataContext();
+            var user = context.Clientes.FirstOrDefault(x => x.Id == 1);
+            user.Name = "João Gabriel lindao";
+            context.Clientes.Update(user);
+            context.SaveChanges();
+            
         }
         private static void InserindoDadosNoClienteEsuasTabelasDeRelacao()
         {
@@ -79,12 +88,15 @@ namespace EfCore
         private static void ConsultandoDados()
         {
             var context = new BlogDataContext();
-            var receiveListUser = context.Clientes.AsNoTracking().Where(x=>x.Name == "joao").ToList();
-            var receivelListProduto = context.Pedidos.Include(x=>x.ClienteID);
-            foreach (var item in receiveListUser)
+            //var receiveListUser = context.Clientes.AsNoTracking().Where(x=>x.Name == "joao").ToList();
+            var receivelListProduto = context.Pedidos.Include(x=>x.PedidoItems).ThenInclude(x=>x.Quantidade);
+            foreach (var item in receivelListProduto)
             {
+               
                 Console.WriteLine(item.Id);
-                Console.WriteLine(item.Name);
+                Console.WriteLine(item.IniciandoEm);
+                Console.WriteLine(item.Observacao);
+                Console.WriteLine(item.ClienteID);
             }
         }
         private static void InsercaoDeDadosViaCliente()
