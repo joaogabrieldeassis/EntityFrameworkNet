@@ -9,14 +9,15 @@ namespace EfCore
     {
         static void Main(string[] args)
         {
-            AtualizandoDadosComPerfomasse();
+            ExclusaoDeDadosComperformasse();
         }
         private static void AtualizandoDadosComPerfomasse()
         {
+            
             var context = new BlogDataContext();
-            var user = context.Clientes.FirstOrDefault(x => x.Id == 1);
-            user.Name = "João Gabriel lindao";
-            //context.Clientes.Update(user); (Com o update ele irá tentar atualizar todos os campos da tabela, por isso é bom usar somente o savechances)
+            var produtos = context.Produtoos.FirstOrDefault(x => x.Id == 1);
+            produtos.Descricao = "Jesus eu te Amo muitaooo";
+            //context.Produtoos.Update(produtos); //(Com o update ele irá tentar atualizar todos os campos da tabela, por isso é bom usar somente o savechances)
             context.SaveChanges();
             
         }
@@ -81,7 +82,7 @@ namespace EfCore
             produto.Ativo = true;
 
             //var cliente = new Client(0,"João Gabriel de assis", "Rua eusebio");
-            //context.AddRange(produto,cliente);
+            context.AddRange(produto);
             var receiveSaveChabges = context.SaveChanges();
             Console.WriteLine($"Esse é o número de registros inseridos: {receiveSaveChabges}");
         }
@@ -89,7 +90,7 @@ namespace EfCore
         {
             var context = new BlogDataContext();
             //var receiveListUser = context.Clientes.AsNoTracking().Where(x=>x.Name == "joao").ToList();
-            var receivelListProduto = context.Pedidos.Include(x=>x.PedidoItems).ThenInclude(x=>x.Quantidade);
+            var receivelListProduto = context.Pedidos.Include(x=>x.PedidoItems);
             foreach (var item in receivelListProduto)
             {
                
@@ -107,6 +108,13 @@ namespace EfCore
             var receiveClient = Console.ReadLine();
             var receiveClientEndereço = Console.ReadLine();
             //listClient.Add(new Client(receiveClient,receiveClientEndereço));  
+        }
+        private static void ExclusaoDeDadosComperformasse()
+        {
+            var context = new BlogDataContext();
+            var produto = new Produto { Id = 1002 };
+            context.Entry(produto).State = EntityState.Deleted;
+            context.SaveChanges();
         }
     }
 }
