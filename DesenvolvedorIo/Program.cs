@@ -16,7 +16,7 @@ namespace EfCore
             var context = new BlogDataContext();
             var user = context.Clientes.FirstOrDefault(x => x.Id == 1);
             user.Name = "João Gabriel lindao";
-            context.Clientes.Update(user);
+            //context.Clientes.Update(user); (Com o update ele irá tentar atualizar todos os campos da tabela, por isso é bom usar somente o savechances)
             context.SaveChanges();
             
         }
