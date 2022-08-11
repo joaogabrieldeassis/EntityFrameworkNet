@@ -16,6 +16,9 @@ namespace EfCore.Data.MappingConfiguration
         {
             builder.ToTable("PedidoItem");
             builder.HasKey(x => x.Id);
+            builder.Property(x => x.Id)
+            .ValueGeneratedOnAdd()
+            .UseIdentityColumn();
             builder.Property(x => x.Quantidade).HasDefaultValue(1).IsRequired();
             builder.Property(x => x.Valor).IsRequired();
             builder.Property(x => x.Desconto).IsRequired();

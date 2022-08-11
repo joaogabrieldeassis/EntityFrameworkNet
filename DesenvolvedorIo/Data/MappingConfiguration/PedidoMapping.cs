@@ -15,6 +15,9 @@ namespace EfCore.Data.MappingConfiguration
         {
             builder.ToTable("Pedido");
             builder.HasKey(x => x.Id);
+            builder.Property(x => x.Id)
+            .ValueGeneratedOnAdd()
+            .UseIdentityColumn();
             builder.Property(x => x.IniciandoEm).HasDefaultValueSql("GETDATE()").ValueGeneratedOnAdd();
             builder.Property(x => x.FinalizandoEm).HasDefaultValueSql("GETDATE()").ValueGeneratedOnAdd();
             builder.Property(x => x.TipoDeFrete).HasConversion<int>();

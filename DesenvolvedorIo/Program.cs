@@ -11,6 +11,34 @@ namespace EfCore
         {
             ConsultandoDados();
         }
+        private static void InserindoDadosNoClienteEsuasTabelasDeRelacao()
+        {
+            var dataContext = new BlogDataContext();
+            var dadosCliente = dataContext.Clientes.FirstOrDefault();
+            var dadosProdutos = dataContext.Produtoos.FirstOrDefault();
+           
+            var pedido = new Pedido
+            {
+                ClienteID = dadosCliente.Id,
+                IniciandoEm = DateTime.Now,
+                FinalizandoEm = DateTime.Now,
+                Observacao = "João é fiho de Deus",
+                Status = StatusDoPedido.Analise,
+                TipoDeFrete = TipoDeFrete.SemFrete,
+                PedidoItems = new List<PedidoItem>()
+                {
+                    new PedidoItem
+                    {
+                        ProdutoId = dadosProdutos.Id,
+                        Desconto = 0,
+                        Quantidade = 0,
+                        Valor = 20
+                    }
+                }
+            };
+            dataContext.Pedidos.Add(pedido);
+            dataContext.SaveChanges();
+        }
         private static void InserirDadosNoProduto()
         {
             var contextProduto = new BlogDataContext();
@@ -43,18 +71,20 @@ namespace EfCore
             produto.TipoDoProduto = TipoDoProduto.Embalagem;
             produto.Ativo = true;
 
-            var cliente = new Client("João Gabriel de assis", "Rua eusebio");
-            context.AddRange(produto,cliente);
+            //var cliente = new Client(0,"João Gabriel de assis", "Rua eusebio");
+            //context.AddRange(produto,cliente);
             var receiveSaveChabges = context.SaveChanges();
             Console.WriteLine($"Esse é o número de registros inseridos: {receiveSaveChabges}");
         }
         private static void ConsultandoDados()
         {
             var context = new BlogDataContext();
-            var listProduto = context.Produtoos.Where(x=>x.Ativo == false).AsNoTracking().ToList();
-            foreach (var item in listProduto)
+            var receiveListUser = context.Clientes.AsNoTracking().Where(x=>x.Name == "joao").ToList();
+            var receivelListProduto = context.Pedidos.Include(x=>x.ClienteID);
+            foreach (var item in receiveListUser)
             {
-                Console.WriteLine($"Id: {item.Ativo}");
+                Console.WriteLine(item.Id);
+                Console.WriteLine(item.Name);
             }
         }
         private static void InsercaoDeDadosViaCliente()
@@ -64,7 +94,7 @@ namespace EfCore
             Console.WriteLine("Digite o seu nome");
             var receiveClient = Console.ReadLine();
             var receiveClientEndereço = Console.ReadLine();
-            listClient.Add(new Client(receiveClient,receiveClientEndereço));  
+            //listClient.Add(new Client(receiveClient,receiveClientEndereço));  
         }
     }
 }

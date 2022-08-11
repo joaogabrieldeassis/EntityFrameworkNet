@@ -7,13 +7,9 @@ using System.Threading.Tasks;
 
 namespace EfCore.Domain
 {
-    public class Client : BaseId
+    public class Client 
     {
-        public Client(string name, string endereco)
-        {
-            Name = name;
-            Endereco = endereco;
-        }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Endereco { get; set; }
     }

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace EfCore.Domain
 {
-    public class Pedido : BaseId
+    public class Pedido 
     {
-
+        public int Id { get; set; }
         public int ClienteID { get; set; }
         public Client Client { get; set; }
         public DateTime IniciandoEm { get; set; }
@@ -18,7 +18,7 @@ namespace EfCore.Domain
         public StatusDoPedido Status{ get; set; }
         public string Observacao{ get; set; }
 
-        public List<PedidoItem> PedidoItems{ get; set; }
+        public ICollection<PedidoItem> PedidoItems{ get; set; }
     //Um pedido tem muitos itens De Pedido
     }
 }

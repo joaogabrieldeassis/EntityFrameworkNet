@@ -15,6 +15,9 @@ namespace EfCore.Data.MappingConfiguration
         {
             builder.ToTable("Produto");
             builder.HasKey(x => x.Id);
+            builder.Property(x => x.Id)
+            .ValueGeneratedOnAdd()
+            .UseIdentityColumn();
             builder.Property(x => x.CodigoDeBarras).HasColumnType("NVARCHAR(150)").IsRequired();
             builder.Property(x => x.Descricao).HasColumnType("NVARCHAR(300)").IsRequired();
             builder.Property(x => x.Valor).IsRequired();

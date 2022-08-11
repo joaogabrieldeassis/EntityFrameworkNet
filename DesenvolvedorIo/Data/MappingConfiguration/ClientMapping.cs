@@ -15,6 +15,9 @@ namespace EfCore.Data.MappingConfiguration
         {
             builder.ToTable("Client");
             builder.HasKey(x => x.Id);
+            builder.Property(x => x.Id)
+            .ValueGeneratedOnAdd()
+            .UseIdentityColumn();
             builder.Property(x => x.Name).HasColumnType("VARCHAR(80)").IsRequired();
             builder.Property(x => x.Endereco).HasColumnType("CHAR(11)");
             builder.HasIndex("Name").HasName("Id_Cliente");

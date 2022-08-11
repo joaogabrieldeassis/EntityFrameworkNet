@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EfCore.Migrations
 {
     [DbContext(typeof(BlogDataContext))]
-    [Migration("20220808192130_SegundaMigracao")]
-    partial class SegundaMigracao
+    [Migration("20220810191227_AddBlogCreatedTimestamp")]
+    partial class AddBlogCreatedTimestamp
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,9 +26,11 @@ namespace EfCore.Migrations
 
             modelBuilder.Entity("EfCore.Domain.Client", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Endereco")
                         .IsRequired()
@@ -48,12 +50,14 @@ namespace EfCore.Migrations
 
             modelBuilder.Entity("EfCore.Domain.Pedido", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("ClientId")
-                        .HasColumnType("uniqueidentifier");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
 
                     b.Property<int>("ClienteID")
                         .HasColumnType("int");
@@ -88,9 +92,11 @@ namespace EfCore.Migrations
 
             modelBuilder.Entity("EfCore.Domain.PedidoItem", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<double>("Desconto")
                         .HasColumnType("float");
@@ -98,14 +104,8 @@ namespace EfCore.Migrations
                     b.Property<int>("PedidoId")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("PedidoId1")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<int>("ProdutoId")
                         .HasColumnType("int");
-
-                    b.Property<Guid>("ProdutoId1")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Quantidade")
                         .ValueGeneratedOnAdd()
@@ -117,18 +117,20 @@ namespace EfCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PedidoId1");
+                    b.HasIndex("PedidoId");
 
-                    b.HasIndex("ProdutoId1");
+                    b.HasIndex("ProdutoId");
 
                     b.ToTable("PedidoItem", (string)null);
                 });
 
             modelBuilder.Entity("EfCore.Domain.Produto", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<bool>("Ativo")
                         .HasColumnType("bit");
@@ -168,13 +170,13 @@ namespace EfCore.Migrations
                 {
                     b.HasOne("EfCore.Domain.Pedido", "Pedido")
                         .WithMany("PedidoItems")
-                        .HasForeignKey("PedidoId1")
+                        .HasForeignKey("PedidoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EfCore.Domain.Produto", "Produto")
                         .WithMany()
-                        .HasForeignKey("ProdutoId1")
+                        .HasForeignKey("ProdutoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
