@@ -8,7 +8,6 @@ namespace blog.Models
         public string PasswordHash { get; set; }
         public string Image { get; set; }
         public string Slug { get; set; }
-
         public string Bio { get; set; }
     }
 }
