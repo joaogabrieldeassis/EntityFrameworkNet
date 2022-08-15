@@ -1,5 +1,8 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace blog.Models
 {
+    [Table("User")]
     public class Category
     {
         public int Id { get; set; }
