@@ -1,5 +1,8 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace blog.Models
 {
+    [Table("Post")]
     public class Post
     {
         public int Id { get; set; }
