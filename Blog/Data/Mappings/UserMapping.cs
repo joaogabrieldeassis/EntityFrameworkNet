@@ -45,8 +45,6 @@ namespace Blog.Data.Mappings
             builder.Property(x => x.Bio)
                 .IsRequired()
                 .HasColumnType("NVARCHAR(max)");
-                
-
 
             //Abaixo temos um exemplo de mapeamento de objeto de valor
 
