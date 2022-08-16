@@ -18,7 +18,16 @@ namespace Blog.Data.Mappings
             builder.Property(x => x.Id)
                 .ValueGeneratedOnAdd()
                 .UseIdentityColumn();
-            builder.OwnsOne(x => x.Name, p =>
+            builder.Property(x => x.Name)
+                .IsRequired()
+                .HasColumnType("NVARCHAR")
+                .HasMaxLength(150);
+            
+            builder.Property(x=>x.Email)
+
+            //Abaixo temos um exemplo de mapeamento de objeto de valor
+
+            /*builder.OwnsOne(x => x.Name, p =>
             {
                 p.Property(x => x.FirstName)
                 .IsRequired()
@@ -30,6 +39,7 @@ namespace Blog.Data.Mappings
                 .HasMaxLength(100);
             }
             );
+            */
         }
     }
 }
