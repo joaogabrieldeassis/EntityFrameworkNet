@@ -8,7 +8,7 @@ namespace Blog
     {
         public static void Main(string[] args)
         {
-            ConsultarDadodos();
+            ListandoPostEmMassa();
         }
         public static void ConsultarDadodos()
         {
@@ -42,6 +42,15 @@ namespace Blog
             var user = new User { Id = 13 };
             context.Entry(user).State = EntityState.Deleted;
             context.SaveChanges();
+        }
+        private static void ListandoPostEmMassa()
+        {
+            var context = new BlogDataContext();
+            var receiveListUser = context.Posts.AsNoTracking().Include(x => x.CategoryId);
+            foreach (var item in receiveListUser)
+            {
+                Console.WriteLine($"Title Post - {item.Title}\nName Category - {item.CategoryId}");
+            }
         }
     }
 }

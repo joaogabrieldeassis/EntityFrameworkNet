@@ -2,7 +2,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace blog.Models
 {
-    [Table("Role")]
     public class Role
     {
         public int Id { get; set; }
