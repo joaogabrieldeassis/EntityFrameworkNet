@@ -21,9 +21,32 @@ namespace Blog.Data.Mappings
             builder.Property(x => x.Name)
                 .IsRequired()
                 .HasColumnType("NVARCHAR")
-                .HasMaxLength(150);
-            
-            builder.Property(x=>x.Email)
+                .HasMaxLength(80);
+
+            builder.Property(x => x.Email)
+                .IsRequired()
+                .HasColumnType("NVARCHAR")
+                .HasMaxLength(160);
+
+            builder.Property(x=>x.PasswordHash)
+                .IsRequired()
+                .HasColumnType("NVARCHAR")
+                .HasMaxLength(255);
+
+            builder.Property(x => x.Image)
+                .IsRequired()
+                .HasColumnType("NVARCHAR(max)");
+
+            builder.Property(x => x.Slug)
+                .IsRequired()
+                .HasColumnType("NVARCHAR")
+                .HasMaxLength(80);
+
+            builder.Property(x => x.Bio)
+                .IsRequired()
+                .HasColumnType("NVARCHAR(max)");
+                
+
 
             //Abaixo temos um exemplo de mapeamento de objeto de valor
 
@@ -43,12 +66,3 @@ namespace Blog.Data.Mappings
         }
     }
 }
-/*
- *      public int Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string PasswordHash { get; set; }
-        public string Image { get; set; }
-        public string Slug { get; set; }
-        public string Bio { get; set; }
-*/
