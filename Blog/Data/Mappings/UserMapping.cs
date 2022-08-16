@@ -18,7 +18,18 @@ namespace Blog.Data.Mappings
             builder.Property(x => x.Id)
                 .ValueGeneratedOnAdd()
                 .UseIdentityColumn();
-            builder.Property()
+            builder.OwnsOne(x => x.Name, p =>
+            {
+                p.Property(x => x.FirstName)
+                .IsRequired()
+                .HasColumnType("NVARCHAR")
+                .HasMaxLength(50);
+                p.Property(x => x.LastName)
+                .IsRequired()
+                .HasColumnType("NVARVHAR")
+                .HasMaxLength(100);
+            }
+            );
         }
     }
 }
