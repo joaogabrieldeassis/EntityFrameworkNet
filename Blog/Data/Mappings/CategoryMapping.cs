@@ -15,6 +15,9 @@ namespace Blog.Data.Mappings
         {
             builder.ToTable("Category");
             builder.HasKey(x => x.Id);
+            builder.Property(x => x.Id)
+                .ValueGeneratedOnAdd()
+                .UseIdentityColumn();
             builder.Property(x => x.Name)
                 .IsRequired()
                 .HasColumnType("NVARCHAR")
