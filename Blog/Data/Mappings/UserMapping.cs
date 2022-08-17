@@ -46,6 +46,24 @@ namespace Blog.Data.Mappings
                 .IsRequired()
                 .HasColumnType("NVARCHAR(max)");
 
+            builder
+                .HasMany(x => x.Roles)
+                .WithMany(x => x.Users)
+                .UsingEntity<Dictionary<string, object>>(
+                    "UserRole",
+                    role => role
+                        .HasOne<Role>()
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .HasConstraintName("FK_UserRole_RoleId")
+                        .OnDelete(DeleteBehavior.Cascade),
+                    user => user
+                        .HasOne<User>()
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .HasConstraintName("FK_UserRole_UserId")
+                        .OnDelete(DeleteBehavior.Cascade));
+
             //Abaixo temos um exemplo de mapeamento de objeto de valor
 
             /*builder.OwnsOne(x => x.Name, p =>
