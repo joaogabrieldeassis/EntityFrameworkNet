@@ -39,7 +39,21 @@ namespace Blog.Data.Mappings
                 .IsRequired()
                 .HasColumnType("SMALLDATETIME")
                 .HasDefaultValue(DateTime.Now.ToUniversalTime());
-                ;
+
+            builder.Property(x => x.LastUpdateDate)
+                .IsRequired()
+                .HasColumnType("SMALLDATETIME")
+                .HasDefaultValue(DateTime.Now.ToUniversalTime());
+
+            builder.HasOne(x => x.Author)
+                .WithMany(x => x.Posts)
+                .HasConstraintName("FK_Post_Author")
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(x => x.Category)
+                .WithMany(x => x.Posts)
+                .HasConstraintName("FK_Post_Category")
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
