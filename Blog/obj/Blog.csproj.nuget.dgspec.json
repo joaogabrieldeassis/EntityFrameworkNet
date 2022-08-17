@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\EntityFrameworkNet\\Blog\\Blog.csproj": {}
+    "C:\\EntityFrameworkNet\\blog\\Blog.csproj": {}
   },
   "projects": {
-    "C:\\EntityFrameworkNet\\Blog\\Blog.csproj": {
+    "C:\\EntityFrameworkNet\\blog\\Blog.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\EntityFrameworkNet\\Blog\\Blog.csproj",
+        "projectUniqueName": "C:\\EntityFrameworkNet\\blog\\Blog.csproj",
         "projectName": "Blog",
-        "projectPath": "C:\\EntityFrameworkNet\\Blog\\Blog.csproj",
+        "projectPath": "C:\\EntityFrameworkNet\\blog\\Blog.csproj",
         "packagesPath": "C:\\Users\\Windows\\.nuget\\packages\\",
-        "outputPath": "C:\\EntityFrameworkNet\\Blog\\obj\\",
+        "outputPath": "C:\\EntityFrameworkNet\\blog\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
