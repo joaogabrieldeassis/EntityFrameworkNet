@@ -18,6 +18,28 @@ namespace Blog.Data.Mappings
             builder.Property(x => x.Id)
                 .ValueGeneratedOnAdd()
                 .UseIdentityColumn();
+
+            builder.Property(x => x.Title)
+               .IsRequired()
+               .HasColumnType("NVARCHAR(max)");
+
+            builder.Property(x => x.Sumary)
+                .IsRequired()
+                .HasColumnType("NVARCHAR(max)");
+
+            builder.Property(x=>x.Body)
+                .IsRequired()
+                .HasColumnType("NVARCHAR(max)");
+
+            builder.Property(x => x.Slug)
+                .IsRequired()
+                .HasColumnType("NVARCHAR(max)");
+
+            builder.Property(x => x.CreateDateTime)
+                .IsRequired()
+                .HasColumnType("SMALLDATETIME")
+                .HasDefaultValue(DateTime.Now.ToUniversalTime());
+                ;
         }
     }
 }
