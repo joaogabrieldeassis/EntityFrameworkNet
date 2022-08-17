@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "E5ywQFtLy5LqtCBdmdEvmEYiElq+cOYd67art8mDmjXhYcCAudVZoXSsnxMrjY2QQTxpzBQbh6XOmfRGN4l9PQ==",
+  "dgSpecHash": "71px8M5CZd+697+lXXiDcPMzgEBAxp9Mrg362m+zBIJrhGIYYHixw0I2tdEkwZZhgCttYf4Su8jvvRM8X/DrbA==",
   "success": true,
-  "projectFilePath": "C:\\EntityFrameworkNet\\blog\\Blog.csproj",
+  "projectFilePath": "C:\\EntityFrameworkNet\\Blog\\Blog.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Windows\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Windows\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

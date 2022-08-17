@@ -20,29 +20,35 @@ namespace Blog.Data.Mappings
                 .UseIdentityColumn();
             builder.Property(x => x.Name)
                 .IsRequired()
+                .HasColumnName("Name")
                 .HasColumnType("NVARCHAR")
                 .HasMaxLength(80);
 
             builder.Property(x => x.Email)
                 .IsRequired()
+                .HasColumnName("Email")
                 .HasColumnType("NVARCHAR")
                 .HasMaxLength(160);
 
             builder.Property(x=>x.PasswordHash)
                 .IsRequired()
+                .HasColumnName("PasswordHash")
                 .HasColumnType("NVARCHAR")
                 .HasMaxLength(255);
 
             builder.Property(x => x.Image)
                 .IsRequired()
-                .HasColumnType("NVARCHAR(max)");
+                .HasColumnName("Image")
+                .HasColumnType("NVARCHAR");
 
             builder.Property(x => x.Slug)
                 .IsRequired()
+                .HasColumnName("Slug")
                 .HasColumnType("NVARCHAR")
                 .HasMaxLength(80);
 
             builder.Property(x => x.Bio)
+                .HasColumnName("Bio")
                 .IsRequired()
                 .HasColumnType("NVARCHAR(max)");
 

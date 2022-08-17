@@ -18,6 +18,7 @@ namespace Blog.Data.Mappings
             builder.Property(x => x.Id)
                 .ValueGeneratedOnAdd()
                 .UseIdentityColumn();
+
             builder.Property(x => x.Name)
                 .IsRequired()
                 .HasColumnType("NVARCHAR")
