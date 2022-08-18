@@ -14,7 +14,7 @@ namespace Blog
         private static void BucarUmUsuarioEspecifico()
         {
             var blogDataContext = new BlogDataContext();
-            var receiveAUser = blogDataContext.Users.AsNoTracking().ToList();
+            var receiveAUser = blogDataContext.Users.AsNoTracking().Where(x=>x.Id == 33).ToList();
             foreach (var item in receiveAUser)
             {
                 Console.WriteLine($"Id - {item.Id}");
