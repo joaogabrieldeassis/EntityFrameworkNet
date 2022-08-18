@@ -39,7 +39,9 @@ namespace Blog.Data.Mappings
             builder.Property(x => x.Image)
                 .IsRequired()
                 .HasColumnName("Image")
-                .HasColumnType("NVARCHAR");
+                .HasColumnType("NVARCHAR")
+                .HasMaxLength(80);
+            
 
             builder.Property(x => x.Slug)
                 .IsRequired()
@@ -50,7 +52,9 @@ namespace Blog.Data.Mappings
             builder.Property(x => x.Bio)
                 .HasColumnName("Bio")
                 .IsRequired()
-                .HasColumnType("NVARCHAR");
+                .HasColumnType("NVARCHAR")
+                .HasMaxLength(80);
+            
 
             builder
                 .HasMany(x => x.Roles)

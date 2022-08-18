@@ -4,6 +4,7 @@ using Blog.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Blog.Migrations
 {
     [DbContext(typeof(BlogDataContext))]
-    partial class BlogDataContextModelSnapshot : ModelSnapshot
+    [Migration("20220818220551_IniciandoAmigracao3")]
+    partial class IniciandoAmigracao3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,8 +65,7 @@ namespace Blog.Migrations
 
                     b.Property<string>("Body")
                         .IsRequired()
-                        .HasMaxLength(80)
-                        .HasColumnType("NVARCHAR(80)")
+                        .HasColumnType("NVARCHAR")
                         .HasColumnName("Body");
 
                     b.Property<int>("CategoryId")
@@ -73,31 +74,28 @@ namespace Blog.Migrations
                     b.Property<DateTime>("CreateDateTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("SMALLDATETIME")
-                        .HasDefaultValue(new DateTime(2022, 8, 18, 22, 9, 47, 240, DateTimeKind.Utc).AddTicks(4249))
+                        .HasDefaultValue(new DateTime(2022, 8, 18, 22, 5, 51, 0, DateTimeKind.Utc).AddTicks(6803))
                         .HasColumnName("CreateDateTime");
 
                     b.Property<DateTime>("LastUpdateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("SMALLDATETIME")
-                        .HasDefaultValue(new DateTime(2022, 8, 18, 22, 9, 47, 240, DateTimeKind.Utc).AddTicks(4420))
+                        .HasDefaultValue(new DateTime(2022, 8, 18, 22, 5, 51, 0, DateTimeKind.Utc).AddTicks(6964))
                         .HasColumnName("LastUpdateDate");
 
                     b.Property<string>("Slug")
                         .IsRequired()
-                        .HasMaxLength(80)
-                        .HasColumnType("NVARCHAR(80)")
+                        .HasColumnType("NVARCHAR")
                         .HasColumnName("Slug");
 
                     b.Property<string>("Sumary")
                         .IsRequired()
-                        .HasMaxLength(80)
-                        .HasColumnType("NVARCHAR(80)")
+                        .HasColumnType("NVARCHAR")
                         .HasColumnName("Sumary");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(80)
-                        .HasColumnType("NVARCHAR(80)")
+                        .HasColumnType("NVARCHAR")
                         .HasColumnName("Title");
 
                     b.HasKey("Id");
@@ -161,8 +159,7 @@ namespace Blog.Migrations
 
                     b.Property<string>("Bio")
                         .IsRequired()
-                        .HasMaxLength(80)
-                        .HasColumnType("NVARCHAR(80)")
+                        .HasColumnType("NVARCHAR")
                         .HasColumnName("Bio");
 
                     b.Property<string>("Email")
@@ -173,8 +170,7 @@ namespace Blog.Migrations
 
                     b.Property<string>("Image")
                         .IsRequired()
-                        .HasMaxLength(80)
-                        .HasColumnType("NVARCHAR(80)")
+                        .HasColumnType("NVARCHAR")
                         .HasColumnName("Image");
 
                     b.Property<string>("Name")

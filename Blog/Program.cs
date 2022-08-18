@@ -31,17 +31,23 @@ namespace Blog
             };
             var post = new Post
             {
+                Category = category,
+                Author = user,
                 Title = "Primeiro Titulo",
                 Sumary = "Sumario",
                 Body = "João",
                 Slug = "Muito bom",
                 CreateDateTime = DateTime.Now,
                 LastUpdateDate = DateTime.Now,
-                Category = category,
-                Author = user
+                
             };
             context.Posts.Add(post);
             context.SaveChanges();
+        }
+        private static void ConsultandoDadosDadosDeTresTabelasDiferentes()
+        {
+            var context = new BlogDataContext();
+            var receivePostAndUser = context.Posts.AsNoTracking().Include(x => x.Author).ThenInclude(x=>x.Roles).ToList();
         }
         /*
          public int Id { get; set; }
@@ -56,7 +62,7 @@ namespace Blog
         private static void BucarUmUsuarioEspecifico()
         {
             var blogDataContext = new BlogDataContext();
-            var receiveAUser = blogDataContext.Users.AsNoTracking().Where(x=>x.Id == 33).ToList();
+            var receiveAUser = blogDataContext.Users.AsNoTracking().Where(x => x.Id == 33).ToList();
             foreach (var item in receiveAUser)
             {
                 Console.WriteLine($"Id - {item.Id}");

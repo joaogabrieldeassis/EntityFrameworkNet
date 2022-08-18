@@ -24,22 +24,26 @@ namespace Blog.Data.Mappings
             builder.Property(x => x.Title)
                .IsRequired()
                .HasColumnName("Title")
-               .HasColumnType("NVARCHAR");
+               .HasColumnType("NVARCHAR")
+               .HasMaxLength(80);
 
             builder.Property(x => x.Sumary)
                 .IsRequired()
                 .HasColumnName("Sumary")
-                .HasColumnType("NVARCHAR");
+                .HasColumnType("NVARCHAR")
+                .HasMaxLength(80);
 
             builder.Property(x=>x.Body)
                 .IsRequired()
                 .HasColumnName("Body")
-                .HasColumnType("NVARCHAR");
+                .HasColumnType("NVARCHAR")
+                .HasMaxLength(80);
 
             builder.Property(x => x.Slug)
                 .IsRequired()
                 .HasColumnName("Slug")
-                .HasColumnType("NVARCHAR");
+                .HasColumnType("NVARCHAR")
+                .HasMaxLength(80);
 
             builder.Property(x => x.CreateDateTime)
                 .IsRequired()

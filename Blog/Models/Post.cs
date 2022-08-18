@@ -11,9 +11,7 @@ namespace blog.Models
         public string Slug { get; set; }
         public DateTime CreateDateTime { get; set; }
         public DateTime LastUpdateDate { get; set; }
-        public int CategoryId { get; set; }
         public Category Category { get; set; }
-        public int UserId { get; set; }
         public User Author { get; set; }
         public IList<Tag> Tags { get; set; }
     }
