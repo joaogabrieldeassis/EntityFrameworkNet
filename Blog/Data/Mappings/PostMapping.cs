@@ -14,26 +14,32 @@ namespace Blog.Data.Mappings
         public void Configure(EntityTypeBuilder<Post> builder)
         {
             builder.ToTable("Post");
+
             builder.HasKey(x => x.Id);
+
             builder.Property(x => x.Id)
                 .ValueGeneratedOnAdd()
                 .UseIdentityColumn();
 
             builder.Property(x => x.Title)
                .IsRequired()
-               .HasColumnType("NVARCHAR(max)");
+               .HasColumnName("Title")
+               .HasColumnType("NVARCHAR");
 
             builder.Property(x => x.Sumary)
                 .IsRequired()
-                .HasColumnType("NVARCHAR(max)");
+                .HasColumnName("Sumary")
+                .HasColumnType("NVARCHAR");
 
             builder.Property(x=>x.Body)
                 .IsRequired()
-                .HasColumnType("NVARCHAR(max)");
+                .HasColumnName("Body")
+                .HasColumnType("NVARCHAR");
 
             builder.Property(x => x.Slug)
                 .IsRequired()
-                .HasColumnType("NVARCHAR(max)");
+                .HasColumnName("Slug")
+                .HasColumnType("NVARCHAR");
 
             builder.Property(x => x.CreateDateTime)
                 .IsRequired()
