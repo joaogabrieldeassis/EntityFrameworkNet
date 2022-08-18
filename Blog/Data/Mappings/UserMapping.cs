@@ -50,7 +50,7 @@ namespace Blog.Data.Mappings
             builder.Property(x => x.Bio)
                 .HasColumnName("Bio")
                 .IsRequired()
-                .HasColumnType("NVARCHAR(max)");
+                .HasColumnType("NVARCHAR");
 
             builder
                 .HasMany(x => x.Roles)

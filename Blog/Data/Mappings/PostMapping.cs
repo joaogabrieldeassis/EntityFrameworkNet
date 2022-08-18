@@ -43,11 +43,13 @@ namespace Blog.Data.Mappings
 
             builder.Property(x => x.CreateDateTime)
                 .IsRequired()
+                .HasColumnName("CreateDateTime")
                 .HasColumnType("SMALLDATETIME")
                 .HasDefaultValue(DateTime.Now.ToUniversalTime());
 
             builder.Property(x => x.LastUpdateDate)
                 .IsRequired()
+                .HasColumnName("LastUpdateDate")
                 .HasColumnType("SMALLDATETIME")
                 .HasDefaultValue(DateTime.Now.ToUniversalTime());
 
