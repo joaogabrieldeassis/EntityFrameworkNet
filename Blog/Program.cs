@@ -8,7 +8,7 @@ namespace Blog
     {
         public static void Main(string[] args)
         {
-            InserindoDadosComPerformasse();
+            AtualizandoDados();
         }
         //CRUD com performasse
         private static void InserindoDadosComPerformasse()
@@ -28,6 +28,14 @@ namespace Blog
                 Image = "http: João lindo",
                 Slug = "Aaaaaaaa",
                 Bio = "Curso Muito bom",
+                Roles = new List<Role>
+                {
+                   new Role
+                   {
+                       Name = "Role 1",
+                       Slug = "João"
+                   }
+                }
             };
             var post = new Post
             {
@@ -48,25 +56,21 @@ namespace Blog
         {
             var context = new BlogDataContext();
             var receivePostAndUser = context.Posts.AsNoTracking().Include(x => x.Author).ThenInclude(x=>x.Roles).ToList();
+            foreach (var item in receivePostAndUser)
+            {
+                Console.WriteLine($"IdPost - {item.Id}\nUser: {item.Author.Name}\n\n Roles: {item.Author.Roles}");
+            }
         }
-        /*
-         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string PasswordHash { get; set; }
-        public string Image { get; set; }
-        public string Slug { get; set; }
-        public string Bio { get; set; }
-        public IList<Post> Posts { get; set; }
-        public IList<Role> Roles { get; set; }*/
-        private static void BucarUmUsuarioEspecifico()
+        
+        private static void AtualizandoDados()
         {
             var blogDataContext = new BlogDataContext();
-            var receiveAUser = blogDataContext.Users.AsNoTracking().Where(x => x.Id == 33).ToList();
-            foreach (var item in receiveAUser)
-            {
-                Console.WriteLine($"Id - {item.Id}");
-            }
+
+            var user = blogDataContext.Users.FirstOrDefault();
+            user.Name = "João e Mary";
+            blogDataContext.SaveChanges();
+            // blogDataContext.Users.Update(user); //Esse formato ele executa duas querys no banco, 
+            //Para resolvermos isso já chamamos o saveChanges que ele vai atualizar só com uma query
         }
     }
 }
