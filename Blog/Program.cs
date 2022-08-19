@@ -8,7 +8,8 @@ namespace Blog
     {
         public static void Main(string[] args)
         {
-            AtualizandoDados();
+            var context = new BlogDataContext();
+            ConsultandoDadosDadosDeTresTabelasDiferentes(context);
         }
         //CRUD com performasse
         private static void InserindoDadosComPerformasse()
@@ -52,16 +53,11 @@ namespace Blog
             context.Posts.Add(post);
             context.SaveChanges();
         }
-        private static void ConsultandoDadosDadosDeTresTabelasDiferentes()
+        private static async Task<List<User>> ConsultandoDadosDadosDeTresTabelasDiferentes(BlogDataContext context)
         {
-            var context = new BlogDataContext();
-            var receivePostAndUser = context.Posts.AsNoTracking().Include(x => x.Author).ThenInclude(x=>x.Roles).ToList();
-            foreach (var item in receivePostAndUser)
-            {
-                Console.WriteLine($"IdPost - {item.Id}\nUser: {item.Author.Name}\n\n Roles: {item.Author.Roles}");
-            }
+            return await context.Users.ToListAsync();
+            Console.WriteLine();
         }
-        
         private static void AtualizandoDados()
         {
             var blogDataContext = new BlogDataContext();
