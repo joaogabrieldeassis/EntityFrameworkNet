@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\EntityFrameworkNet\\DesenvolvedorIo\\EfCore.csproj": {}
+    "C:\\EntityFrameworkNet\\desenvolvedorio\\EfCore.csproj": {}
   },
   "projects": {
-    "C:\\EntityFrameworkNet\\DesenvolvedorIo\\EfCore.csproj": {
+    "C:\\EntityFrameworkNet\\desenvolvedorio\\EfCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\EntityFrameworkNet\\DesenvolvedorIo\\EfCore.csproj",
+        "projectUniqueName": "C:\\EntityFrameworkNet\\desenvolvedorio\\EfCore.csproj",
         "projectName": "EfCore",
-        "projectPath": "C:\\EntityFrameworkNet\\DesenvolvedorIo\\EfCore.csproj",
+        "projectPath": "C:\\EntityFrameworkNet\\desenvolvedorio\\EfCore.csproj",
         "packagesPath": "C:\\Users\\Windows\\.nuget\\packages\\",
-        "outputPath": "C:\\EntityFrameworkNet\\DesenvolvedorIo\\obj\\",
+        "outputPath": "C:\\EntityFrameworkNet\\desenvolvedorio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

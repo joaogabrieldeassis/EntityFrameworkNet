@@ -14,6 +14,6 @@ namespace EfCore.Domain
         public string Descricao { get; set; }
         public double Valor { get; set; }
         public TipoDoProduto TipoDoProduto { get; set; }
-        public bool Ativo{ get; set; }
+        public bool Ativo { get; set; }
     }
 }

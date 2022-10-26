@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "o0MWpZkGKx6kECpo6Z2cY0+p6erQai6HSPd+gXvlCwoAngHm9F2SrMKyHN/Y2pY+eImztpoxtZq1ZCEx7BMgrg==",
+  "dgSpecHash": "+3MgSNapeDI3JEFtWwkOSxd8mEkv7T+2H848BG++SPok25kxqDom5hDoHdJ7epls0xD+MYNGbgFaMtifGtSH/A==",
   "success": true,
-  "projectFilePath": "C:\\EntityFrameworkNet\\DesenvolvedorIo\\EfCore.csproj",
+  "projectFilePath": "C:\\EntityFrameworkNet\\desenvolvedorio\\EfCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Windows\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Windows\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
